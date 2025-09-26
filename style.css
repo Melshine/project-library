@@ -181,3 +181,7 @@ button.delete {
 button.cancel {
     background-color: gray;
 }
+
+.hidden{
+    display:none;
+}

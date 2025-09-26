@@ -87,6 +87,7 @@ add.addEventListener('click', event => {
     dialog.querySelector('#author').value = ''
     dialog.querySelector('#pages').value = 0
     dialog.querySelector('#done').checked = false
+    dele.classList.add('hidden')
     dialog.showModal()
 })
 
