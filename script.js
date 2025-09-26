@@ -31,12 +31,20 @@ function getWidth(pages) {
 }
 
 const shelf = document.querySelector('.shelf')
+let isScrolling = false;
 
 shelf.addEventListener('wheel', event => {
     event.preventDefault()
-    delta = event.wheelDelta
-    if (delta > 0) shelf.scrollBy({ left: delta, behavior: 'smooth' })
-    else shelf.scrollBy({ left: delta, behavior: 'smooth' })
+    if (!isScrolling) {
+        delta = event.wheelDelta
+        if (delta > 0) shelf.scrollBy({ left: delta, behavior: 'smooth' })
+        else shelf.scrollBy({ left: delta, behavior: 'smooth' })
+        if (delta != 0) isScrolling = true
+        setTimeout(() => {
+            isScrolling = false
+        }, 150)
+    }
+
 })
 
 function addBookToLibrary(title, author, pages, done) {
@@ -79,6 +87,8 @@ const afterShelf = document.querySelector('shelf::after')
 const dialog = document.querySelector('dialog')
 const form = document.querySelector('form')
 const add = document.querySelector('.add')
+
+
 
 add.addEventListener('click', event => {
     book_update = undefined
