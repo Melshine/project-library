@@ -1,0 +1,183 @@
+:root {
+    /* space size */
+    --space-xxs: 4px;
+    --space-xs: 8px;
+    --space-sm: 12px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+    --space-4xl: 96px;
+    --space-5xl: 128px;
+    --space-6xl: 192px;
+    --space-7xl: 256px;
+    --space-8xl: 384px;
+    --space-9xl: 512px;
+    --space-10xl: 640px;
+    --space-11xl: 768px;
+
+    /* font size */
+    --font-xs: 0.75rem;
+    --font-sm: 0.875rem;
+    --font-md: 1rem;
+    --font-lg: 1.125rem;
+    --font-xl: 1.25rem;
+    --font-2xl: 1.5rem;
+    --font-3xl: 1.875rem;
+    --font-4xl: 2.25rem;
+    --font-5xl: 3rem;
+    --font-6xl: 3.75rem;
+    --font-7xl: 4.5rem;
+}
+
+body {
+    background-color: lightcyan;
+}
+
+.main {
+    width: clamp(400px, 50%, 900px);
+    margin: auto;
+}
+
+.title {
+    font-size: var(--font-6xl);
+    display: flex;
+    gap: var(--space-xl);
+    justify-content: center;
+    font-family: "Borel";
+
+    svg {
+        height: var(--font-6xl)
+    }
+}
+
+button.add {
+    padding: var(--space-xxs) var(--space-xxs);
+    border-radius: 50%;
+
+    svg {
+        display: block;
+        height: 20px
+    }
+}
+
+.shelf {
+    width: 100%;
+    margin: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: 5px;
+    padding-top: var(--space-5xl);
+    padding-left: var(--space-lg);
+    padding-right: var(--space-lg);
+    position: relative;
+    white-space: nowrap;
+    box-sizing: border-box;
+    scrollbar-width: thin;
+}
+
+/* .shelf::before{
+    content: '';
+    display: block;
+    width:calc(100%);
+    height:15px;
+    background-color: brown;
+    position: absolute;
+    bottom:0;
+} */
+
+.book {
+    width: 50px;
+    height: 150px;
+    background-color: red;
+    writing-mode: vertical-rl;
+    padding: 10px;
+    color: white;
+    display: inline;
+    transition: .2s transform;
+    margin-left: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: 1s width;
+}
+
+.book:hover {
+    outline: 2px solid black;
+    transform: scale(1.05);
+    transition: .2s transform, 1s width;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.border {
+    border-bottom: 15px solid brown;
+    /* position: relative;
+    top:-25px; */
+}
+
+.scroll {
+    text-align: center;
+}
+
+.all,
+.border,
+.all {
+    overflow: hidden;
+}
+
+/* dialog{
+    --w : 200px;
+    --h : 400px;
+    width: var(--w);
+    height: var(--h);
+    background-color: white;
+    position:fixed;
+    top:calc(50% - var(--h)/2 );
+    left:calc(50% - var(--w)/2 );
+} */
+
+
+dialog[open] {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    place-items: center;
+
+}
+
+dialog form {
+    width: 300px;
+    height: 300px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 7px;
+}
+
+dialog form p {
+    display: grid;
+    /* grid-auto-flow: column; */
+}
+
+dialog button {
+
+    color: white;
+    border-radius: 5px;
+}
+
+button.save {
+    background-color: blue;
+}
+
+button.delete {
+    background-color: red;
+}
+
+button.cancel {
+    background-color: gray;
+}
