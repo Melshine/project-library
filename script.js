@@ -95,6 +95,7 @@ shelf.addEventListener('click', event => {
     if (event.target.classList.contains('book')) {
         load(event.target)
         book_update = event.target.getAttribute('data-id')
+        dele.classList.remove('hidden')
         dialog.showModal();
     }
 })
