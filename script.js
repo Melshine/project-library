@@ -77,7 +77,7 @@ for (let book of books) {
 const afterShelf = document.querySelector('shelf::after')
 
 const dialog = document.querySelector('dialog')
-
+const form = document.querySelector('form')
 const add = document.querySelector('.add')
 
 add.addEventListener('click', event => {
@@ -143,9 +143,11 @@ function saveBook() {
 
 const save = document.querySelector('.save')
 save.addEventListener('click', event => {
-    event.preventDefault()
-    saveBook()
-    dialog.close()
+    if(form.checkValidity()){
+        saveBook()
+        dialog.close()
+        event.preventDefault()
+    }
 })
 
 const cancel = document.querySelector('.cancel')
